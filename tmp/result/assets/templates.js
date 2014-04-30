@@ -1,0 +1,15 @@
+define('appkit/templates/application', ['exports'], function(__exports__){ __exports__['default'] = Ember.Handlebars.compile("<nav class=\"navbar navbar-default\" role=\"navigation\">\n  <div class=\"container-fluid\">\n    <!-- Brand and toggle get grouped for better mobile display -->\n    <div class=\"navbar-header\">\n      <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\"#bs-example-navbar-collapse-1\">\n        <span class=\"sr-only\">Toggle navigation</span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n      </button>\n      <a class=\"navbar-brand\" href=\"#\"></a>\n    </div>\n\n    <!-- Collect the nav links, forms, and other content for toggling -->\n    <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">\n      <ul class=\"nav navbar-nav\">\n        {{#link-to 'index' tagName=\"li\" href=false}}<a {{bindAttr href=\"view.href\"}}>Tickets</a>{{/link-to}}\n        {{#link-to 'users.index' tagName=\"li\" href=false}}<a {{bindAttr href=\"view.href\"}}>Users</a>{{/link-to}}\n        <ul class=\"nav navbar-nav navbar-right\">\n        <li class=\"dropdown\">\n        <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\"><span class=\"glyphcon glyphcon-cog\"></span></a>\n          <ul class=\"dropdown-menu\">\n            <li>Login/Sign Up</li>\n            <li>Change Name</li>\n            <li>Change email</li>\n          </ul>\n        </li>\n      </ul>\n    </div><!-- /.navbar-collapse -->\n  </div><!-- /.container-fluid -->\n</nav>\n{{outlet}}\n"); });
+
+define('appkit/templates/component-test', ['exports'], function(__exports__){ __exports__['default'] = Ember.Handlebars.compile("{{#each}}\n  {{pretty-color name=this}}\n{{/each}}\n"); });
+
+define('appkit/templates/components/pretty-color', ['exports'], function(__exports__){ __exports__['default'] = Ember.Handlebars.compile("Pretty Color: {{name}}\n"); });
+
+define('appkit/templates/error', ['exports'], function(__exports__){ __exports__['default'] = Ember.Handlebars.compile("<h1>Sorry, Something went wrong</h1>\n{{message}}\n<pre>\n{{stack}}\n</pre>\n"); });
+
+define('appkit/templates/helper-test', ['exports'], function(__exports__){ __exports__['default'] = Ember.Handlebars.compile("<h3>My name is {{reverse-word name}}.</h3>\n"); });
+
+define('appkit/templates/index', ['exports'], function(__exports__){ __exports__['default'] = Ember.Handlebars.compile("<ul>\n{{#each}}\n  <li>\n  <h1>{{subject}}: {{urgency}}</h1>\n    <p>{{body}}</p>\n  </li>\n{{/each}}\n</ul>\n"); });
+
+define('appkit/templates/loading', ['exports'], function(__exports__){ __exports__['default'] = Ember.Handlebars.compile("<h1>Loading...</h1>\n"); });
+
+define('appkit/templates/users', ['exports'], function(__exports__){ __exports__['default'] = Ember.Handlebars.compile("{{#each}}\n<li>\n  <h1>{{name}}</h1>\n  <a {{bind-attr href=\"url\"}}>{{email}}</a>\n  <img {{bind-attr src=\"image\"}}></img>\n</li>\n{{/each}}\n"); });
