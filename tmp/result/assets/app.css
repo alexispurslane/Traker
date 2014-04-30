@@ -5,22 +5,34 @@ html, body {
 }
 .navbar {
   background: #D8D8D8 !important;
-  opacity: 0.8 !important;
-  height: 33px !important;
+  height: 50px !important;
   min-height: 0px !important;
+  background: -webkit-linear-gradient(rgba(240, 240, 240, 1.0), rgba(215, 215, 215, 1.0) 50px, #6A6A6A 1px, #EDEDED, #EDEDED 23px) !important; 
 }
 .active > a {
   font-weight:bold;
   width: 181px !important;
-  height: 28px !important;
+  height: 50px !important;
   min-height: 0px !important;
   padding-top: 5px !important;
   padding-bottom: 0px !important;
 }
 .navbar-collapse > .navbar-nav > li > a {
-  width: 181px !important;
-  height: 28px !important;
+  width: 45px !important;
+  height: 50px !important;
   min-height: 0px !important;
   padding-top: 5px !important;
   padding-bottom: 0px !important;
+}
+.navbar-collapse > .navbar-nav > li > a > img {
+  width: 45px;
+  height: 45px;
+}
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus {
+  color: #555 !important;
+  background-color: transparent !important;
+}
+a.dropdown-toggle {
+  width: 50px !important;
+  height: 50px !important;
 }
