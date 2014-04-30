@@ -7,11 +7,20 @@ html, body {
   background: #D8D8D8 !important;
   opacity: 0.8 !important;
   height: 33px !important;
+  min-height: 0px !important;
 }
-.active {
+.active > a {
   font-weight:bold;
-}
-.navbar-collapse > .navbar-nav > li {
   width: 181px !important;
   height: 28px !important;
+  min-height: 0px !important;
+  padding-top: 5px !important;
+  padding-bottom: 0px !important;
+}
+.navbar-collapse > .navbar-nav > li > a {
+  width: 181px !important;
+  height: 28px !important;
+  min-height: 0px !important;
+  padding-top: 5px !important;
+  padding-bottom: 0px !important;
 }
