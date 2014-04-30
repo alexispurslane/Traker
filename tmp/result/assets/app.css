@@ -1,4 +1,17 @@
 /* Put your CSS here */
 html, body {
-    margin: 20px;
+  margin: 20px;
+  padding-top: 20px;
+}
+.navbar {
+  background: #D8D8D8 !important;
+  opacity: 0.8 !important;
+  height: 33px !important;
+}
+.active {
+  font-weight:bold;
+}
+.navbar-collapse > .navbar-nav > li {
+  width: 181px !important;
+  height: 28px !important;
 }

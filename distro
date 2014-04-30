@@ -1,0 +1,10 @@
+#!/bin/bash
+echo "Running Grunt..."
+grunt dist
+
+rm -rf ../Traker/*
+echo "Copying..."
+cp -R dist/* ../Traker
+echo "Minceing..."
+sed 's/\"\//\"\.\//g' ../Traker/index.html > ../Traker/index2.html
+mv ../Traker/index2.html ../Traker/index.html

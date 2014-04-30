@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default" role="navigation">
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -12,19 +12,20 @@
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
+    <ul class="nav navbar-nav navbar-right">
+      <li class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img width="22" height="22" src='/assets/gear.png'></img></a>
+      <ul class="dropdown-menu">
+        <li><a href="#">Login/Sign Up</a></li>
+        <li><a href="#">Change Name</a></li>
+        <li><a href="#">Change email</a></li>
+      </ul>
+      </li>
+    </ul>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         {{#link-to 'index' tagName="li" href=false}}<a {{bindAttr href="view.href"}}>Tickets</a>{{/link-to}}
         {{#link-to 'users.index' tagName="li" href=false}}<a {{bindAttr href="view.href"}}>Users</a>{{/link-to}}
-        <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphcon glyphcon-cog"></span></a>
-          <ul class="dropdown-menu">
-            <li>Login/Sign Up</li>
-            <li>Change Name</li>
-            <li>Change email</li>
-          </ul>
-        </li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
