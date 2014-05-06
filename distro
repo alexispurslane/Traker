@@ -9,3 +9,4 @@ echo "Minceing..."
 sed 's/\"\//\"\.\//g' ../Traker/index.html > ../Traker/index2.html
 mv ../Traker/index2.html ../Traker/index.html
 echo '{ "name": "Traker", "window": { "width": 800, "height":600, "toolbar":false }, "main": "index.html" }' > ../Traker/package.json
+

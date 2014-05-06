@@ -14,10 +14,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <ul class="nav navbar-nav navbar-right">
       <li class="dropdown">
-      <a href="#" class="dropdown-toggle" style="
-        right: 4px;
-        top: -9px;
-      " data-toggle="dropdown"><img id="icon" width="33" height="33" src='./assets/gear.png'></img></a>
+      <a href="#" class="dropdown-toggle" style="" data-toggle="dropdown"><img id="icon" width="33" height="33" src='./assets/gear.png'></img></a>
       <ul class="dropdown-menu">
         <li><a href="#">Login/Sign Up</a></li>
         <li><a href="#">Change Name</a></li>
@@ -27,7 +24,7 @@
     </ul>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        {{#link-to 'index' tagName="li" href=false}}<a {{bindAttr href="view.href"}}></a>{{/link-to}}
+        {{#link-to 'index' tagName="li" href=false}}<a {{bindAttr href="view.href"}}><img id="icon" src='./assets/doc.png'></img></a>{{/link-to}}
         {{#link-to 'users.index' tagName="li" href=false}}<a {{bindAttr href="view.href"}}><img id="icon" src='./assets/anano.png'></img></a>{{/link-to}}
       </ul>
     </div><!-- /.navbar-collapse -->

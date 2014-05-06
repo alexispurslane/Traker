@@ -27,12 +27,45 @@ html, body {
 .navbar-collapse > .navbar-nav > li > a > img {
   width: 45px;
   height: 45px;
+  left: -15px;
+  position: relative;
 }
 .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus {
   color: #555 !important;
-  background-color: transparent !important;
 }
 a.dropdown-toggle {
   width: 50px !important;
   height: 50px !important;
+}
+.nav > li {
+  left: -15px;
+  position: relative;
+}
+#icon {
+  right: 5px;
+  bottom: 5px;
+  position: relative;
+}
+.navbar-nav>li>.dropdown-menu {
+  margin-top: 0;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 6px !important;
+  border-bottom-right-radius: 6px !important;
+}
+.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus {
+  color: #262626 !important;
+  text-decoration: none !important;
+  background: linear-gradient(rgb(117, 145, 245),rgb(21, 71, 211)) !important;
+}
+.dropdown-menu>li>a {
+  display: block;
+  padding: 3px 20px;
+  clear: both;
+  font-weight: normal;
+  line-height: 94% !important;
+  color: #333;
+  white-space: nowrap;
+  margin-bottom: 4px;
+  margin-top: 4px;
 }

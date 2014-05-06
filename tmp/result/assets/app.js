@@ -5,18 +5,17 @@ define("appkit/adapters/application",
     __exports__["default"] = DS.FixtureAdapter.extend();
   });
 define("appkit/app", 
-  ["ember/resolver","ember/load-initializers","exports"],
-  function(__dependency1__, __dependency2__, __exports__) {
+  ["ember/resolver","ember/load-initializers","appkit/helpers/index-get","exports"],
+  function(__dependency1__, __dependency2__, __dependency3__, __exports__) {
     "use strict";
     var Resolver = __dependency1__["default"];
     var loadInitializers = __dependency2__["default"];
-
+    var indexGet = __dependency3__["default"];
     var App = Ember.Application.extend({
       modulePrefix: 'appkit', // TODO: loaded via config
       Resolver: Resolver,
        LOG_ACTIVE_GENERATION: true
     });
-
     loadInitializers(App, 'appkit');
 
     __exports__["default"] = App;
@@ -49,16 +48,13 @@ define("appkit/controllers/application",
     __exports__["default"] = Ember.ArrayController.extend({
     });
   });
-define("appkit/helpers/reverse-word", 
+define("appkit/helpers/index-get", 
   ["exports"],
   function(__exports__) {
     "use strict";
-    // Please note that Handlebars helpers will only be found automatically by the
-    // resolver if their name contains a dash (reverse-word, translate-text, etc.)
-    // For more details: http://stefanpenner.github.io/ember-app-kit/guides/using-modules.html
-
-    __exports__["default"] = Ember.Handlebars.makeBoundHelper(function(word) {
-      return word.split('').reverse().join('');
+    __exports__["default"] = Ember.Handlebars.registerBoundHelper('index-get', function (outer, inner) {
+      console.log(outer);
+      return outer[inner];
     });
   });
 define("appkit/initializers/inject-store-into-component", 
@@ -173,15 +169,21 @@ define("appkit/routes/helper-test",
     });
   });
 define("appkit/routes/index", 
-  ["appkit/lib/ticket-proxy","exports"],
-  function(__dependency1__, __exports__) {
+  ["appkit/lib/ticket-proxy","appkit/lib/user-proxy","exports"],
+  function(__dependency1__, __dependency2__, __exports__) {
     "use strict";
     var TicketProxy = __dependency1__["default"];
+    var UserProxy = __dependency2__["default"];
     __exports__["default"] = Ember.Route.extend({
       model: function() {
         var tickets = TicketProxy.create({});
-        tickets.set('ref', new Firebase('http://traker.firebaseio.com/tickets'));
-        return tickets;
+        tickets.set('ref', new Firebase('https://traker.firebaseio.com/tickets'));
+        var users = UserProxy.create({});
+        users.set('ref', new Firebase('https://traker.firebaseio.com/users'));
+        return { 
+          tickets: tickets,
+          users: users
+        };
       }
     });
   });

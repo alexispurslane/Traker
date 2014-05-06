@@ -1,8 +1,14 @@
 import TicketProxy from 'appkit/lib/ticket-proxy';
+import UserProxy from 'appkit/lib/user-proxy';
 export default Ember.Route.extend({
   model: function() {
     var tickets = TicketProxy.create({});
-    tickets.set('ref', new Firebase('http://traker.firebaseio.com/tickets'));
-    return tickets;
+    tickets.set('ref', new Firebase('https://traker.firebaseio.com/tickets'));
+    var users = UserProxy.create({});
+    users.set('ref', new Firebase('https://traker.firebaseio.com/users'));
+    return { 
+      tickets: tickets,
+      users: users
+    };
   }
 });

@@ -1,8 +1,13 @@
-<ul>
-{{#each}}
+<ul class='list-unstyled'>
+{{#each tickets}}
   <li>
-  <h1>{{subject}}: {{urgency}}</h1>
+  <h3>{{subject}}
+    <span {{bind-attr class=':label type'}}>{{urgency}}</span>
+  </h3>
     <p>{{body}}</p>
+    {{#each user in to}}
+      {{index-get ../../users user}}
+    {{/each}}
   </li>
 {{/each}}
 </ul>
