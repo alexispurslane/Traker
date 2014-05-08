@@ -7,6 +7,7 @@
     </ul>
     <ul class="main-navigation">
       {{#if isSignedIn}}
+        {{#link-to 'index' tagName="li" href=false}}<a {{bindAttr href="view.href"}}>Dashboard</a>{{/link-to}}
         {{#link-to 'tickets.new' tagName="li" href=false}}<a {{bindAttr href="view.href"}}>New Ticket</a>{{/link-to}}
         {{#link-to 'tickets.index' tagName="li" href=false}}<a {{bindAttr href="view.href"}}>Tickets</a>{{/link-to}}
         <li><a {{action 'logout'}}>Log Out</a></li>

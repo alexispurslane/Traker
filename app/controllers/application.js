@@ -1,14 +1,11 @@
 export default Ember.Controller.extend({
   isSignedIn: function () {
-    if (localStorage.isSignedIn != undefined) {
-      return localStorage.isSignedIn;
-    } else {
-      return false;
-    }
+    return eval(localStorage.isSignedIn);
   }.property(),
   actions: {
     logout: function () {
       localStorage.isSignedIn = false;
+      this.set('isSignedIn', false);
       this.transitionTo('sighnin');
     }
   }

@@ -45,6 +45,8 @@ define("appkit/controllers/sighnin",
           if (this.get('rememberMe')) {
             localStorage.isSignedIn = App.__container__.lookup('controller:application').get('isSignedIn');
           }
+          localStorage.signedInAs = JSON.stringify(object);
+          this.transitionTo('index');
         }
       }
     });
