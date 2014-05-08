@@ -136,10 +136,27 @@ define("appkit/controllers/tickets/index",
   ["exports"],
   function(__exports__) {
     "use strict";
+    __exports__["default"] = Ember.Controller.extend({});
+  });
+define("appkit/controllers/tickets/new", 
+  ["exports"],
+  function(__exports__) {
+    "use strict";
     __exports__["default"] = Ember.Controller.extend({
-      isSignedIn: function () {
-        return eval(localStorage.isSignedIn);
-      }.property(),
+      choices: [
+        {
+          urgency: "High",
+          label: "High"
+        },
+        {
+          urgency: "Medium",
+          label: "Medium"
+        },
+        {
+          urgency: "Low",
+          label: "Low"
+        }
+      ]
     });
   });
 define("appkit/helpers/index-get", 

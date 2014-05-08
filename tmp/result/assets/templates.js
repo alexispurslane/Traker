@@ -16,4 +16,4 @@ define('appkit/templates/sighnin', ['exports'], function(__exports__){ __exports
 
 define('appkit/templates/tickets/index', ['exports'], function(__exports__){ __exports__['default'] = Ember.Handlebars.compile("<br/>\n<br/>\n<ul class='list-unstyled'>\n  {{log \"Tickets:\"}}\n  {{log tickets}}\n</ul>\n"); });
 
-define('appkit/templates/tickets/new', ['exports'], function(__exports__){ __exports__['default'] = Ember.Handlebars.compile(""); });
+define('appkit/templates/tickets/new', ['exports'], function(__exports__){ __exports__['default'] = Ember.Handlebars.compile("<br/>\n<br/>\n<div class=\"large-4 columns text-center\">\n  <label><b>Subject</b></label>\n  {{input type=\"text\" value=subject}}\n  <label><b>Body</b></label>\n  {{textarea value=body cols=\"80\" rows=\"6\"}}\n  {{view Ember.Select\n    content=choices\n    optionLabelPath=\"choices.label\"\n    optionValuePath=\"choices.urgency\"\n    prompt=\"Choose urgency...\"\n    selection=urgency\n  }}\n</div>\n"); });
