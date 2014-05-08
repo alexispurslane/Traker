@@ -10,7 +10,7 @@ export default Ember.ArrayProxy.extend({
       that.set('content', users);
     });
   }.observes('ref'),
-  pushTicket: function (user) {
+  pushUser: function (user) {
     this.ref.push(user);
   }
 });

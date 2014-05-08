@@ -8,7 +8,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- build:css(tmp/result) /assets/app.min.css -->
   <link rel="stylesheet" href="/assets/app.css">
-  <link rel="stylesheet" href="/vendor/bootstrap/dist/css/bootstrap.min.css">
+  <!--<link rel="stylesheet" href="/vendor/bootstrap/dist/css/bootstrap.min.css">-->
+  <link rel="stylesheet" href="/assets/flat.min.css">
+  <link rel="stylesheet" href="/assets/normalize.min.css">
+  <script src="/assets/modernizr/modernizr.js"></script>
   <!-- endbuild -->
   <script>
     if (window.nwDispatcher) {
@@ -124,6 +127,5 @@
     window.App = require('appkit/app')['default'].create(ENV.APP);
   </script>
   <!-- @endif -->
-
 </body>
 </html>

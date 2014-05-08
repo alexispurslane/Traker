@@ -1,0 +1,2 @@
+{{#link-to 'index' tagName="li" href=false}}<a {{bindAttr href="view.href"}}>Tickets</a>{{/link-to}}
+        {{#link-to 'users.index' tagName="li" href=false}}<a {{bindAttr href="view.href"}}>Users</a>{{/link-to}}

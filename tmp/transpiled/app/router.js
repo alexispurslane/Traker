@@ -7,7 +7,10 @@ define("appkit/router",
     Router.map(function() {
       this.route('component-test');
       this.route('helper-test');
-      this.resource('users', function() {
+      this.resource('sighnin', function() {
+        this.route('new');
+      });
+      this.resource('tickets', function() {
         this.route('new');
       });
       //this.resource('user', { path: '/user/:user_id' });

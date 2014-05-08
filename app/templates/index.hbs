@@ -1,13 +1,5 @@
-<ul class='list-unstyled'>
-{{#each tickets}}
-  <li>
-  <h3>{{subject}}
-    <span {{bind-attr class=':label type'}}>{{urgency}}</span>
-  </h3>
-    <p>{{body}}</p>
-    {{#each user in to}}
-      {{index-get ../../users user}}
-    {{/each}}
-  </li>
-{{/each}}
-</ul>
+<div class="text-center">
+  <h1>Welcome to Traker, the ultimate teamwork app!</h1>
+  <h3 class="subheader">To get started, just sign in!</h3>
+  {{#link-to 'sighnin.index' class="button success-darker"}}Sign In{{/link-to}}
+</div>

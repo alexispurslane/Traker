@@ -1,0 +1,21 @@
+<br/>
+<br/>
+<ul class='list-unstyled'>
+{{#each tickets}}
+  <li>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3>{{subject}}
+          <span {{bind-attr class=':round :label :alert'}}>{{urgency}}</span>
+        </h3>
+      </div>
+      <div class="panel-body">
+        <p>{{body}}</p>
+        {{#each user in to}}
+          {{index-get ../../users user}}
+        {{/each}}
+      </div>
+    </div>
+    </li>
+{{/each}}
+</ul>

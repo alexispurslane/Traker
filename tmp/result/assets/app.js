@@ -45,7 +45,71 @@ define("appkit/controllers/application",
   ["exports"],
   function(__exports__) {
     "use strict";
-    __exports__["default"] = Ember.ArrayController.extend({
+    __exports__["default"] = Ember.Controller.extend({
+      isSignedIn: function () {
+        if (localStorage.isSignedIn != undefined) {
+          return localStorage.isSignedIn;
+        } else {
+          return false;
+        }
+      }.property(),
+      actions: {
+        logout: function () {
+          localStorage.isSignedIn = false;
+          this.transitionTo('sighnin');
+        }
+      }
+    });
+  });
+define("appkit/controllers/sighnin", 
+  ["exports"],
+  function(__exports__) {
+    "use strict";
+    __exports__["default"] = Ember.Controller.extend({
+      needs: ['application'],
+      image: function () {
+        return 'http://www.gravatar.com/avatar/' + md5(this.get('email'));
+      }.property('email'),
+      url: function () {
+        return 'mailto:' + this.get('email');
+      }.property('email'),
+      isSignedIn: function () {
+        return localStorage.isSignedIn;
+      }.property(),
+      actions: {
+        submit: function () {
+          $('.alert-box').remove();
+          var users = this.get('model.users.content');
+          var userProxy = this.get('model.users');
+          var object = {  
+            image: this.get('image'),
+            url: this.get('url'),
+            name: this.get('name'),
+            email: this.get('email'),
+            password: this.get('password')
+          };
+          function arraysEqual(a,b) { return !(a<b || b<a); }
+          if (object.email != undefined && object.password != undefined) {
+            if (arraysEqual(_.where(users, { email:object.email }), new Array(0))) {
+              userProxy.pushUser(object);
+              App.__container__.lookup('controller:application').set('isSignedIn', true);
+            } else {
+              var match = _.where(users, { email:object.email });
+              if (match[0].password != object.password) {
+                $('.password').addClass('error');
+                $('.wrap-password').append('<small class="error">Invalid password</small>');
+              } else {
+                App.__container__.lookup('controller:application').set('isSignedIn', true);
+              }
+            }
+          } else {
+            $('body').append('<div data-alert="" class="alert-box alert round">The input boxes are for input, people!<a href="" class="close">×</a></div>');
+          }
+          if (this.get('rememberMe')) {
+            localStorage.isSignedIn = App.__container__.lookup('controller:application').get('isSignedIn');
+          }
+        }
+      }
     });
   });
 define("appkit/helpers/index-get", 
@@ -107,10 +171,16 @@ define("appkit/lib/user-proxy",
           that.set('content', users);
         });
       }.observes('ref'),
-      pushTicket: function (user) {
+      pushUser: function (user) {
         this.ref.push(user);
       }
     });
+  });
+define("appkit/models/sighnin", 
+  [],
+  function() {
+    "use strict";
+
   });
 define("appkit/models/ticket", 
   ["exports"],
@@ -138,7 +208,10 @@ define("appkit/router",
     Router.map(function() {
       this.route('component-test');
       this.route('helper-test');
-      this.resource('users', function() {
+      this.resource('sighnin', function() {
+        this.route('new');
+      });
+      this.resource('tickets', function() {
         this.route('new');
       });
       //this.resource('user', { path: '/user/:user_id' });
@@ -169,6 +242,24 @@ define("appkit/routes/helper-test",
     });
   });
 define("appkit/routes/index", 
+  ["exports"],
+  function(__exports__) {
+    "use strict";
+    __exports__["default"] = Ember.Route.extend({});
+  });
+define("appkit/routes/sighnin", 
+  ["appkit/lib/user-proxy","exports"],
+  function(__dependency1__, __exports__) {
+    "use strict";
+    var UserProxy = __dependency1__["default"];__exports__["default"] = Ember.Route.extend({
+      model: function () {
+        var users = UserProxy.create({});
+        users.set('ref', new Firebase('https://traker.firebaseio.com/users'));
+        return { users:users }
+      }
+    });
+  });
+define("appkit/routes/tickets", 
   ["appkit/lib/ticket-proxy","appkit/lib/user-proxy","exports"],
   function(__dependency1__, __dependency2__, __exports__) {
     "use strict";

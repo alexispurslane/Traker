@@ -8,7 +8,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- build:css(tmp/result) /assets/app.min.css -->
   <link rel="stylesheet" href="/assets/app.css">
-  <link rel="stylesheet" href="/vendor/bootstrap/dist/css/bootstrap.min.css">
+  <!--<link rel="stylesheet" href="/vendor/bootstrap/dist/css/bootstrap.min.css">-->
+  <link rel="stylesheet" href="/assets/flat.min.css">
+  <link rel="stylesheet" href="/assets/normalize.min.css">
+  <script src="/assets/modernizr/modernizr.js"></script>
   <!-- endbuild -->
   <script>
     if (window.nwDispatcher) {
@@ -23,7 +26,6 @@
   <!-- build:js(tmp/result) /assets/config.min.js -->
 
     <script src="/config/environment.js"></script>
-      <script src="/config/environments/production.js"></script>
     <!-- @endif -->      <script src="/config/environments/test.js"></script>
   <!-- endbuild -->
 
@@ -31,8 +33,8 @@
 
     <script src="/vendor/jquery/jquery.js"></script>
 
-    <script src="/vendor/handlebars/handlebars.runtime.js"></script>
-    <script src="/vendor/ember/ember.prod.js"></script>
+    <script src="/vendor/handlebars/handlebars.js"></script>
+    <script src="/vendor/ember/ember.js"></script>
     <script src="/vendor/ember-data/ember-data.js"></script>
     <script src="/vendor/loader.js/loader.js"></script>
     <script src="/vendor/ember-resolver/dist/ember-resolver.js"></script>
@@ -52,6 +54,11 @@
 
   <!-- endbuild -->
 
+  <style>
+    @keyframes domChanged { from { background: yellow; } }
+    @-webkit-keyframes domChanged { from { background: yellow; } }
+    .ember-view { animation: domChanged 1s; -webkit-animation: domChanged 1s; }
+  </style>
   <script src="/vendor/ember-shim.js"></script>
   <link rel="stylesheet" href="/vendor/qunit/qunit/qunit.css">
   <script src="/vendor/qunit/qunit/qunit.js"></script>
