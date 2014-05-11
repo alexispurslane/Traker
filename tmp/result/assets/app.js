@@ -116,20 +116,10 @@ define("appkit/controllers/sighnin",
           if (this.get('rememberMe')) {
             localStorage.isSignedIn = App.__container__.lookup('controller:application').get('isSignedIn');
           }
-          localStorage.signedInAs = JSON.stringify(object);
+          localStorage.signedInAs = object;
           this.transitionTo('index');
         }
       }
-    });
-  });
-define("appkit/controllers/tickets", 
-  ["exports"],
-  function(__exports__) {
-    "use strict";
-    __exports__["default"] = Ember.Controller.extend({
-      isSignedIn: function () {
-        return eval(localStorage.isSignedIn);
-      }.property()
     });
   });
 define("appkit/controllers/tickets/index", 
@@ -300,25 +290,6 @@ define("appkit/routes/sighnin",
       }
     });
   });
-define("appkit/routes/tickets", 
-  ["appkit/lib/ticket-proxy","appkit/lib/user-proxy","exports"],
-  function(__dependency1__, __dependency2__, __exports__) {
-    "use strict";
-    var TicketProxy = __dependency1__["default"];
-    var UserProxy = __dependency2__["default"];
-    __exports__["default"] = Ember.Route.extend({
-      model: function() {
-        var tickets = TicketProxy.create({});
-        tickets.set('ref', new Firebase('https://traker.firebaseio.com/tickets'));
-        var users = UserProxy.create({});
-        users.set('ref', new Firebase('https://traker.firebaseio.com/users'));
-        return { 
-          tickets: tickets,
-          users: users
-        };
-      }
-    });
-  });
 define("appkit/routes/tickets/index", 
   ["appkit/lib/ticket-proxy","appkit/lib/user-proxy","exports"],
   function(__dependency1__, __dependency2__, __exports__) {
@@ -335,7 +306,6 @@ define("appkit/routes/tickets/index",
           tickets: tickets,
           users: users
         };
-        console.log(object);
         return object;
       }
     });

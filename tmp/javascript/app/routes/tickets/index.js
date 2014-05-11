@@ -10,7 +10,6 @@ export default Ember.Route.extend({
       tickets: tickets,
       users: users
     };
-    console.log(object);
     return object;
   }
 });

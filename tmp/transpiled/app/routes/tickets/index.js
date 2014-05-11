@@ -14,7 +14,6 @@ define("appkit/routes/tickets/index",
           tickets: tickets,
           users: users
         };
-        console.log(object);
         return object;
       }
     });
