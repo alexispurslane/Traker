@@ -1,0 +1,15 @@
+<br/>
+<br/>
+<div class="large-4 columns text-center">
+  <label><b>Subject</b></label>
+  {{input type="text" value=subject}}
+  <label><b>Body</b></label>
+  {{textarea value=body cols="80" rows="6"}}
+  {{view Ember.Select
+    content=choices
+    optionLabelPath="choices.label"
+    optionValuePath="choices.urgency"
+    prompt="Choose urgency..."
+    selection=urgency
+  }}
+</div>
