@@ -223,6 +223,13 @@ define("appkit/models/ticket",
     ];
     __exports__["default"] = Ticket;
   });
+define("appkit/models/user", 
+  ["exports"],
+  function(__exports__) {
+    "use strict";
+    var User = DS.Model.extend();
+    __exports__["default"] = User;
+  });
 define("appkit/router", 
   ["exports"],
   function(__exports__) {
