@@ -1,6 +1,10 @@
 <br/>
 <br/>
 <ul class='list-unstyled'>
-  {{log "Tickets:"}}
-  {{log tickets}}
+  {{#each this.content}}
+  <li class="panel callout round">
+    <h5>{{_data.subject}} <span class="round alert label">{{_data.urgency}}</span></h5>
+    <p>{{_data.body}}</p>
+  </li>
+  {{/each}}
 </ul>
