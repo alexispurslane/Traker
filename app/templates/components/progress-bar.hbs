@@ -1,0 +1,12 @@
+<script>
+  var w = 0;
+  var i = setInterval(function () {
+      $('.meter').css({
+        width: (w++) + "%"
+      });
+      if (w >= 100) {
+        clearInterval(i);
+      }
+  }, 16.666666667);
+</script>
+<div class="nice round progress success large-10 center"><span class="meter" style="width: 0%"></span></div>
