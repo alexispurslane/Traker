@@ -7,27 +7,9 @@ html, body {
 .alert {
   top: -26px;
 }
-.checkbox {
-  border-style: solid;
-  border-width: 0px;
-  cursor: pointer;
-  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-  font-weight: normal;
-  line-height: normal;
-  margin: 0 0 1.25rem;
+.center {
+  width: 80px;
+  top: 268px;
   position: relative;
-  text-decoration: none;
-  text-align: center;
-  -webkit-appearance: none;
-  -webkit-border-radius: 0;
-  display: inline-block;
-  padding-top: 1rem;
-  padding-right: 2rem;
-  padding-bottom: 1.0625rem;
-  padding-left: 2rem;
-  font-size: 1rem;
-  background-color: #3498db;
-  border-color: #217bb8;
-  color: white;
-  transition: background-color 300ms ease-out;
+  left: 125px;
 }
