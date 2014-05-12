@@ -13,7 +13,6 @@ export default Ember.Controller.extend({
     submit: function () {
       $('.alert-box').remove();
       var users = this.get('model.users.content');
-      var userProxy = this.get('model.users');
       var object = {  
         image: this.get('image'),
         url: this.get('url'),
@@ -21,13 +20,16 @@ export default Ember.Controller.extend({
         email: this.get('email'),
         password: this.get('password')
       };
+      function filterFunc (el) {
+        return el.email === object.email && el.name === object.name;
+      }
       function arraysEqual(a,b) { return !(a<b || b<a); }
       if (object.email != undefined && object.password != undefined) {
-        if (arraysEqual(_.where(users, { email:object.email }), new Array(0))) {
-          userProxy.pushUser(object);
+        if (arraysEqual(_.filter(users, filterFunc), new Array(0))) {
+          this.store.createRecord('user', object);
           App.__container__.lookup('controller:application').set('isSignedIn', true);
         } else {
-          var match = _.where(users, { email:object.email });
+          var match = _.filter(users, filterFunc);
           if (match[0].password != object.password) {
             $('.password').addClass('error');
             $('.wrap-password').append('<small class="error">Invalid password</small>');
@@ -41,7 +43,7 @@ export default Ember.Controller.extend({
       if (this.get('rememberMe')) {
         localStorage.isSignedIn = App.__container__.lookup('controller:application').get('isSignedIn');
       }
-      localStorage.signedInAs = object;
+      localStorage.signedInAs = JSON.stringify(object);
       this.transitionTo('index');
     }
   }
