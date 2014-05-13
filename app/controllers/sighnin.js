@@ -10,6 +10,10 @@ export default Ember.Controller.extend({
     return localStorage.isSignedIn;
   }.property(),
   actions: {
+    toggle: function () {
+      console.log('toggle');
+      this.set('rememberMe', !this.get('rememberMe'));
+    },
     submit: function () {
       $('.alert-box').remove();
       var users = this.get('model.users.content');
