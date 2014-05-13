@@ -10,6 +10,6 @@
     <div class="wrap-password">
       {{input type="password" class="password" value=password placeholder="Enter your password."}}
     </div>
-    <p>{{input type="checkbox"  checked=rememberMe}} Remember Me</p>
+    {{toggle-switch model=this}} <p class="ios-switch-text">Remember Me</p>
     <button class='button success' {{action 'submit'}}>Done!</button>
 </div>
