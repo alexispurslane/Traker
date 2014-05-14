@@ -7,7 +7,7 @@ export default Ember.Component.extend({
           width: (w++) + "%"
         });
         if (w >= 100) {
-          clearInterval(i);
+          clearInterval(this.i);
         }
     }, 16);
   },

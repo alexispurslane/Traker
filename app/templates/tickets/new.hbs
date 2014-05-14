@@ -6,10 +6,11 @@
   <label><b>Body</b></label>
   {{textarea value=body cols="80" rows="6"}}
   {{view Ember.Select
-    content=choices
-    optionLabelPath="choices.label"
-    optionValuePath="choices.urgency"
-    prompt="Choose urgency..."
-    selection=urgency
+    content=urgencies
+    prompt="Select Urgency..."
+    value=urgency
   }}
+  <label><b>To</b></label>
+  {{input type="text" value=to0}}
+  <button class="button success-dark" {{action "submit"}}>Create &raquo;</button>
 </div>

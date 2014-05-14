@@ -1,0 +1,19 @@
+/* Put your CSS here */
+html, body {
+}
+.list-unstyled {
+  list-style:none;
+}
+.alert {
+  top: -26px;
+}
+.center {
+  width: 80px;
+  top: 268px;
+  position: relative;
+  left: 125px;
+}
+.ember-select {
+  margin-top: 40px !important;
+  width: 160px !important;
+}

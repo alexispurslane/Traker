@@ -13,3 +13,7 @@ html, body {
   position: relative;
   left: 125px;
 }
+.ember-select {
+  margin-top: 40px !important;
+  width: 160px !important;
+}
