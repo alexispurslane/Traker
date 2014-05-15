@@ -1,0 +1,14 @@
+<br/>
+<br/>
+<div class="large-4 columns text-center">
+    <label><b>Email</b></label>
+    {{input type="text" value=email placeholder="Enter your email address."}}
+    <label><b>Full Name</b></label>
+    {{input type="text" value=name placeholder="Enter your full name"}}
+    <label><b>Password</b></label>
+    <div class="wrap-password">
+      {{input type="password" class="password" value=password placeholder="Enter your password."}}
+    </div>
+    {{toggle-switch model=this}} <p class="ios-switch-text">Remember Me</p>
+    <button class='button success' {{action 'submit'}}>Sign Up &raquo;</button>
+</div>
