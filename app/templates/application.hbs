@@ -12,7 +12,8 @@
         {{#link-to 'tickets.index' tagName="li" href=false}}<a {{bindAttr href="view.href"}}>Tickets</a>{{/link-to}}
         <li><a {{action 'logout'}}>Log Out</a></li>
       {{else}}
-        {{#link-to 'sighnin.index' tagName="li" href=false}}<a {{bindAttr href="view.href"}}>Sign In</a>{{/link-to}}
+        {{#link-to 'signup' tagName="li" href=false}}<a {{bindAttr href="view.href"}}>Sign Up</a>{{/link-to}}
+        {{#link-to 'login' tagName="li" href=false}}<a {{bindAttr href="view.href"}}>Log In</a>{{/link-to}}
       {{/if}}
     </ul>
   </div>
